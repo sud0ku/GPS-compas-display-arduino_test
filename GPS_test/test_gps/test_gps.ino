@@ -99,12 +99,13 @@ void loop() // run over and over
       break;
       case 5:
         lcd.setCursor(0,0);
-        lcd.print("  X:     Y:     Z:  ");
-        lcd.setCursor(0,1);
+        lcd.print("X: ");
         lcd.print(event.magnetic.x); 
-        lcd.setCursor(7,1);
+        lcd.setCursor(0,1);
+        lcd.print("Y: ");
         lcd.print(event.magnetic.y); 
-        lcd.setCursor(14,1);
+        lcd.setCursor(0,2);
+        lcd.print("Z: ");
         lcd.print(event.magnetic.z);
         break;
     default: 
@@ -139,7 +140,7 @@ void loop() // run over and over
   unsigned long start = millis();
 
   // Every 5 seconds we print an update
-  while (millis() - start < 3000) {
+  while (millis() - start < 5000) {
     if (mySerial.available()) {
       char c = mySerial.read();
       // Serial.print(c);  // uncomment to see raw GPS data
